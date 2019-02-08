@@ -1,5 +1,6 @@
 import { BehaviorSubject } from "rxjs"
 const subject = new BehaviorSubject(123)
+subject.subscribe(console.log)
 
 let fileInputText = document.querySelector(`#fileInputText`)
 fileInputText.addEventListener(`change`, e => {
@@ -45,9 +46,8 @@ let fileInputBlob = document.querySelector(`#fileInputBlob`)
 fileInputBlob.addEventListener(`change`, e => {
   let files = e.target.files
   let file = files[0]
-  subject.subscribe(console.log)
 
-  textFileReaderStream(file)
+  streamTextFromFile(file)
 
   // let reader = new FileReader()
 
@@ -209,4 +209,70 @@ function arrayBufferToString(arrayBuffer) {
 
 function textFileReaderStream(file) {
   readChunk(0, 1024, file)
+}
+
+// function* fibonacci() {
+//   readChunk2(0, 1024, file)
+
+//   while (true) {
+//     var current = fn1
+//     fn1 = fn2
+//     fn2 = current + fn1
+//     var reset = yield current
+//     if (reset) {
+//       fn1 = 0
+//       fn2 = 1
+//     }
+//   }
+// }
+
+async function* textFileReaderStream2(file) {
+  let offset = 0
+  let okToFetch = true
+  while (okToFetch) {
+    let e = await readChunk2(offset, 1024, file)
+    // subject.next(onLoadHandler2(e, 1024, file))
+    yield onLoadHandler2(e, 1024, file)
+    offset += 1024
+    if (offset >= file.size) {
+      console.log(`end`)
+      okToFetch = false
+    }
+  }
+}
+
+function readChunk2(offset, length, file) {
+  return new Promise((resolve, reject) => {
+    var r = new FileReader()
+    var blob = file.slice(offset, length + offset)
+    r.onload = e => {
+      resolve(e)
+    }
+    r.readAsArrayBuffer(blob)
+  })
+}
+
+function onLoadHandler2(e, offset, file) {
+  if (e.target.error !== null) {
+    // subject.next(`error`, e.target.error)
+    return `error`, e.target.error
+  }
+
+  var arrayBuffer = e.target.result
+  // subject.next(arrayBufferToString(arrayBuffer))
+  return arrayBufferToString(arrayBuffer)
+}
+
+async function streamTextFromFile(file) {
+  var sequence = textFileReaderStream2(file)
+  let okToIterate = true
+
+  while (okToIterate) {
+    let p = await sequence.next()
+    if (!p.done) {
+      subject.next(p.value)
+    } else {
+      okToIterate = false
+    }
+  }
 }

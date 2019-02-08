@@ -34,6 +34,7 @@
     function isFunction(x) {
         return typeof x === 'function';
     }
+    //# sourceMappingURL=isFunction.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var _enable_super_gross_mode_that_will_cause_bad_things = false;
@@ -53,11 +54,13 @@
             return _enable_super_gross_mode_that_will_cause_bad_things;
         },
     };
+    //# sourceMappingURL=config.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function hostReportError(err) {
         setTimeout(function () { throw err; });
     }
+    //# sourceMappingURL=hostReportError.js.map
 
     /** PURE_IMPORTS_START _config,_util_hostReportError PURE_IMPORTS_END */
     var empty = {
@@ -73,14 +76,17 @@
         },
         complete: function () { }
     };
+    //# sourceMappingURL=Observer.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var isArray = Array.isArray || (function (x) { return x && typeof x.length === 'number'; });
+    //# sourceMappingURL=isArray.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function isObject(x) {
         return x !== null && typeof x === 'object';
     }
+    //# sourceMappingURL=isObject.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function UnsubscriptionErrorImpl(errors) {
@@ -93,6 +99,7 @@
     }
     UnsubscriptionErrorImpl.prototype = /*@__PURE__*/ Object.create(Error.prototype);
     var UnsubscriptionError = UnsubscriptionErrorImpl;
+    //# sourceMappingURL=UnsubscriptionError.js.map
 
     /** PURE_IMPORTS_START _util_isArray,_util_isObject,_util_isFunction,_util_UnsubscriptionError PURE_IMPORTS_END */
     var Subscription = /*@__PURE__*/ (function () {
@@ -231,11 +238,13 @@
     function flattenUnsubscriptionErrors(errors) {
         return errors.reduce(function (errs, err) { return errs.concat((err instanceof UnsubscriptionError) ? err.errors : err); }, []);
     }
+    //# sourceMappingURL=Subscription.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var rxSubscriber = typeof Symbol === 'function'
         ? /*@__PURE__*/ Symbol('rxSubscriber')
         : '@@rxSubscriber_' + /*@__PURE__*/ Math.random();
+    //# sourceMappingURL=rxSubscriber.js.map
 
     /** PURE_IMPORTS_START tslib,_util_isFunction,_Observer,_Subscription,_internal_symbol_rxSubscriber,_config,_util_hostReportError PURE_IMPORTS_END */
     var Subscriber = /*@__PURE__*/ (function (_super) {
@@ -462,6 +471,7 @@
         };
         return SafeSubscriber;
     }(Subscriber));
+    //# sourceMappingURL=Subscriber.js.map
 
     /** PURE_IMPORTS_START _Subscriber PURE_IMPORTS_END */
     function canReportError(observer) {
@@ -479,6 +489,7 @@
         }
         return true;
     }
+    //# sourceMappingURL=canReportError.js.map
 
     /** PURE_IMPORTS_START _Subscriber,_symbol_rxSubscriber,_Observer PURE_IMPORTS_END */
     function toSubscriber(nextOrObserver, error, complete) {
@@ -495,12 +506,15 @@
         }
         return new Subscriber(nextOrObserver, error, complete);
     }
+    //# sourceMappingURL=toSubscriber.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var observable = typeof Symbol === 'function' && Symbol.observable || '@@observable';
+    //# sourceMappingURL=observable.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function noop() { }
+    //# sourceMappingURL=noop.js.map
 
     /** PURE_IMPORTS_START _noop PURE_IMPORTS_END */
     function pipeFromArray(fns) {
@@ -514,6 +528,7 @@
             return fns.reduce(function (prev, fn) { return fn(prev); }, input);
         };
     }
+    //# sourceMappingURL=pipe.js.map
 
     /** PURE_IMPORTS_START _util_canReportError,_util_toSubscriber,_internal_symbol_observable,_util_pipe,_config PURE_IMPORTS_END */
     var Observable = /*@__PURE__*/ (function () {
@@ -624,6 +639,7 @@
         }
         return promiseCtor;
     }
+    //# sourceMappingURL=Observable.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function ObjectUnsubscribedErrorImpl() {
@@ -634,6 +650,7 @@
     }
     ObjectUnsubscribedErrorImpl.prototype = /*@__PURE__*/ Object.create(Error.prototype);
     var ObjectUnsubscribedError = ObjectUnsubscribedErrorImpl;
+    //# sourceMappingURL=ObjectUnsubscribedError.js.map
 
     /** PURE_IMPORTS_START tslib,_Subscription PURE_IMPORTS_END */
     var SubjectSubscription = /*@__PURE__*/ (function (_super) {
@@ -663,6 +680,7 @@
         };
         return SubjectSubscription;
     }(Subscription));
+    //# sourceMappingURL=SubjectSubscription.js.map
 
     /** PURE_IMPORTS_START tslib,_Observable,_Subscriber,_Subscription,_util_ObjectUnsubscribedError,_SubjectSubscription,_internal_symbol_rxSubscriber PURE_IMPORTS_END */
     var SubjectSubscriber = /*@__PURE__*/ (function (_super) {
@@ -811,6 +829,7 @@
         };
         return AnonymousSubject;
     }(Subject));
+    //# sourceMappingURL=Subject.js.map
 
     /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
     function refCount() {
@@ -867,6 +886,7 @@
         };
         return RefCountSubscriber;
     }(Subscriber));
+    //# sourceMappingURL=refCount.js.map
 
     /** PURE_IMPORTS_START tslib,_Subject,_Observable,_Subscriber,_Subscription,_operators_refCount PURE_IMPORTS_END */
     var ConnectableObservable = /*@__PURE__*/ (function (_super) {
@@ -987,6 +1007,7 @@
         };
         return RefCountSubscriber;
     }(Subscriber));
+    //# sourceMappingURL=ConnectableObservable.js.map
 
     /** PURE_IMPORTS_START tslib,_Subscriber,_Subscription,_Observable,_Subject PURE_IMPORTS_END */
     var GroupBySubscriber = /*@__PURE__*/ (function (_super) {
@@ -1146,6 +1167,7 @@
         };
         return InnerRefCountSubscription;
     }(Subscription));
+    //# sourceMappingURL=groupBy.js.map
 
     /** PURE_IMPORTS_START tslib,_Subject,_util_ObjectUnsubscribedError PURE_IMPORTS_END */
     var BehaviorSubject = /*@__PURE__*/ (function (_super) {
@@ -1185,6 +1207,7 @@
         };
         return BehaviorSubject;
     }(Subject));
+    //# sourceMappingURL=BehaviorSubject.js.map
 
     /** PURE_IMPORTS_START tslib,_Subscription PURE_IMPORTS_END */
     var Action = /*@__PURE__*/ (function (_super) {
@@ -1200,6 +1223,7 @@
         };
         return Action;
     }(Subscription));
+    //# sourceMappingURL=Action.js.map
 
     /** PURE_IMPORTS_START tslib,_Action PURE_IMPORTS_END */
     var AsyncAction = /*@__PURE__*/ (function (_super) {
@@ -1292,6 +1316,7 @@
         };
         return AsyncAction;
     }(Action));
+    //# sourceMappingURL=AsyncAction.js.map
 
     /** PURE_IMPORTS_START tslib,_AsyncAction PURE_IMPORTS_END */
     var QueueAction = /*@__PURE__*/ (function (_super) {
@@ -1330,6 +1355,7 @@
         };
         return QueueAction;
     }(AsyncAction));
+    //# sourceMappingURL=QueueAction.js.map
 
     var Scheduler = /*@__PURE__*/ (function () {
         function Scheduler(SchedulerAction, now) {
@@ -1348,6 +1374,7 @@
         Scheduler.now = function () { return Date.now(); };
         return Scheduler;
     }());
+    //# sourceMappingURL=Scheduler.js.map
 
     /** PURE_IMPORTS_START tslib,_Scheduler PURE_IMPORTS_END */
     var AsyncScheduler = /*@__PURE__*/ (function (_super) {
@@ -1403,6 +1430,7 @@
         };
         return AsyncScheduler;
     }(Scheduler));
+    //# sourceMappingURL=AsyncScheduler.js.map
 
     /** PURE_IMPORTS_START tslib,_AsyncScheduler PURE_IMPORTS_END */
     var QueueScheduler = /*@__PURE__*/ (function (_super) {
@@ -1412,9 +1440,11 @@
         }
         return QueueScheduler;
     }(AsyncScheduler));
+    //# sourceMappingURL=QueueScheduler.js.map
 
     /** PURE_IMPORTS_START _QueueAction,_QueueScheduler PURE_IMPORTS_END */
     var queue = /*@__PURE__*/ new QueueScheduler(QueueAction);
+    //# sourceMappingURL=queue.js.map
 
     /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
     var EMPTY = /*@__PURE__*/ new Observable(function (subscriber) { return subscriber.complete(); });
@@ -1424,11 +1454,13 @@
     function emptyScheduled(scheduler) {
         return new Observable(function (subscriber) { return scheduler.schedule(function () { return subscriber.complete(); }); });
     }
+    //# sourceMappingURL=empty.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function isScheduler(value) {
         return value && typeof value.schedule === 'function';
     }
+    //# sourceMappingURL=isScheduler.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var subscribeToArray = function (array) {
@@ -1441,6 +1473,7 @@
             }
         };
     };
+    //# sourceMappingURL=subscribeToArray.js.map
 
     /** PURE_IMPORTS_START _Observable,_Subscription,_util_subscribeToArray PURE_IMPORTS_END */
     function fromArray(input, scheduler) {
@@ -1465,6 +1498,7 @@
             });
         }
     }
+    //# sourceMappingURL=fromArray.js.map
 
     /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
     function scalar(value) {
@@ -1476,6 +1510,7 @@
         result.value = value;
         return result;
     }
+    //# sourceMappingURL=scalar.js.map
 
     /** PURE_IMPORTS_START _util_isScheduler,_fromArray,_empty,_scalar PURE_IMPORTS_END */
     function of() {
@@ -1499,6 +1534,7 @@
                 return fromArray(args, scheduler);
         }
     }
+    //# sourceMappingURL=of.js.map
 
     /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
     function throwError(error, scheduler) {
@@ -1513,6 +1549,7 @@
         var error = _a.error, subscriber = _a.subscriber;
         subscriber.error(error);
     }
+    //# sourceMappingURL=throwError.js.map
 
     /** PURE_IMPORTS_START _observable_empty,_observable_of,_observable_throwError PURE_IMPORTS_END */
     var NotificationKind;
@@ -1585,6 +1622,7 @@
         Notification.undefinedValueNotification = new Notification("N", undefined);
         return Notification;
     }());
+    //# sourceMappingURL=Notification.js.map
 
     /** PURE_IMPORTS_START tslib,_Subscriber,_Notification PURE_IMPORTS_END */
     var ObserveOnSubscriber = /*@__PURE__*/ (function (_super) {
@@ -1627,6 +1665,7 @@
         }
         return ObserveOnMessage;
     }());
+    //# sourceMappingURL=observeOn.js.map
 
     /** PURE_IMPORTS_START tslib,_Subject,_scheduler_queue,_Subscription,_operators_observeOn,_util_ObjectUnsubscribedError,_SubjectSubscription PURE_IMPORTS_END */
     var ReplaySubject = /*@__PURE__*/ (function (_super) {
@@ -1736,6 +1775,7 @@
         }
         return ReplayEvent;
     }());
+    //# sourceMappingURL=ReplaySubject.js.map
 
     /** PURE_IMPORTS_START tslib,_Subject,_Subscription PURE_IMPORTS_END */
     var AsyncSubject = /*@__PURE__*/ (function (_super) {
@@ -1779,6 +1819,7 @@
         };
         return AsyncSubject;
     }(Subject));
+    //# sourceMappingURL=AsyncSubject.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var nextHandle = 1;
@@ -1800,6 +1841,7 @@
             delete tasksByHandle[handle];
         },
     };
+    //# sourceMappingURL=Immediate.js.map
 
     /** PURE_IMPORTS_START tslib,_util_Immediate,_AsyncAction PURE_IMPORTS_END */
     var AsapAction = /*@__PURE__*/ (function (_super) {
@@ -1835,6 +1877,7 @@
         };
         return AsapAction;
     }(AsyncAction));
+    //# sourceMappingURL=AsapAction.js.map
 
     /** PURE_IMPORTS_START tslib,_AsyncScheduler PURE_IMPORTS_END */
     var AsapScheduler = /*@__PURE__*/ (function (_super) {
@@ -1865,12 +1908,15 @@
         };
         return AsapScheduler;
     }(AsyncScheduler));
+    //# sourceMappingURL=AsapScheduler.js.map
 
     /** PURE_IMPORTS_START _AsapAction,_AsapScheduler PURE_IMPORTS_END */
     var asap = /*@__PURE__*/ new AsapScheduler(AsapAction);
+    //# sourceMappingURL=asap.js.map
 
     /** PURE_IMPORTS_START _AsyncAction,_AsyncScheduler PURE_IMPORTS_END */
     var async = /*@__PURE__*/ new AsyncScheduler(AsyncAction);
+    //# sourceMappingURL=async.js.map
 
     /** PURE_IMPORTS_START tslib,_AsyncAction PURE_IMPORTS_END */
     var AnimationFrameAction = /*@__PURE__*/ (function (_super) {
@@ -1906,6 +1952,7 @@
         };
         return AnimationFrameAction;
     }(AsyncAction));
+    //# sourceMappingURL=AnimationFrameAction.js.map
 
     /** PURE_IMPORTS_START tslib,_AsyncScheduler PURE_IMPORTS_END */
     var AnimationFrameScheduler = /*@__PURE__*/ (function (_super) {
@@ -1936,9 +1983,11 @@
         };
         return AnimationFrameScheduler;
     }(AsyncScheduler));
+    //# sourceMappingURL=AnimationFrameScheduler.js.map
 
     /** PURE_IMPORTS_START _AnimationFrameAction,_AnimationFrameScheduler PURE_IMPORTS_END */
     var animationFrame = /*@__PURE__*/ new AnimationFrameScheduler(AnimationFrameAction);
+    //# sourceMappingURL=animationFrame.js.map
 
     /** PURE_IMPORTS_START tslib,_AsyncAction,_AsyncScheduler PURE_IMPORTS_END */
     var VirtualTimeScheduler = /*@__PURE__*/ (function (_super) {
@@ -2044,16 +2093,22 @@
         };
         return VirtualAction;
     }(AsyncAction));
+    //# sourceMappingURL=VirtualTimeScheduler.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
+    //# sourceMappingURL=identity.js.map
 
     /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
+    //# sourceMappingURL=isObservable.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
+    //# sourceMappingURL=ArgumentOutOfRangeError.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
+    //# sourceMappingURL=EmptyError.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
+    //# sourceMappingURL=TimeoutError.js.map
 
     /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
     var MapSubscriber = /*@__PURE__*/ (function (_super) {
@@ -2078,10 +2133,13 @@
         };
         return MapSubscriber;
     }(Subscriber));
+    //# sourceMappingURL=map.js.map
 
     /** PURE_IMPORTS_START _Observable,_AsyncSubject,_operators_map,_util_canReportError,_util_isArray,_util_isScheduler PURE_IMPORTS_END */
+    //# sourceMappingURL=bindCallback.js.map
 
     /** PURE_IMPORTS_START _Observable,_AsyncSubject,_operators_map,_util_canReportError,_util_isScheduler,_util_isArray PURE_IMPORTS_END */
+    //# sourceMappingURL=bindNodeCallback.js.map
 
     /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
     var OuterSubscriber = /*@__PURE__*/ (function (_super) {
@@ -2100,6 +2158,7 @@
         };
         return OuterSubscriber;
     }(Subscriber));
+    //# sourceMappingURL=OuterSubscriber.js.map
 
     /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
     var InnerSubscriber = /*@__PURE__*/ (function (_super) {
@@ -2125,6 +2184,7 @@
         };
         return InnerSubscriber;
     }(Subscriber));
+    //# sourceMappingURL=InnerSubscriber.js.map
 
     /** PURE_IMPORTS_START _hostReportError PURE_IMPORTS_END */
     var subscribeToPromise = function (promise) {
@@ -2139,6 +2199,7 @@
             return subscriber;
         };
     };
+    //# sourceMappingURL=subscribeToPromise.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function getSymbolIterator() {
@@ -2148,6 +2209,7 @@
         return Symbol.iterator;
     }
     var iterator = /*@__PURE__*/ getSymbolIterator();
+    //# sourceMappingURL=iterator.js.map
 
     /** PURE_IMPORTS_START _symbol_iterator PURE_IMPORTS_END */
     var subscribeToIterable = function (iterable) {
@@ -2174,6 +2236,7 @@
             return subscriber;
         };
     };
+    //# sourceMappingURL=subscribeToIterable.js.map
 
     /** PURE_IMPORTS_START _symbol_observable PURE_IMPORTS_END */
     var subscribeToObservable = function (obj) {
@@ -2187,14 +2250,17 @@
             }
         };
     };
+    //# sourceMappingURL=subscribeToObservable.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     var isArrayLike = (function (x) { return x && typeof x.length === 'number' && typeof x !== 'function'; });
+    //# sourceMappingURL=isArrayLike.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
     function isPromise(value) {
         return !!value && typeof value.subscribe !== 'function' && typeof value.then === 'function';
     }
+    //# sourceMappingURL=isPromise.js.map
 
     /** PURE_IMPORTS_START _Observable,_subscribeToArray,_subscribeToPromise,_subscribeToIterable,_subscribeToObservable,_isArrayLike,_isPromise,_isObject,_symbol_iterator,_symbol_observable PURE_IMPORTS_END */
     var subscribeTo = function (result) {
@@ -2229,6 +2295,7 @@
             throw new TypeError(msg);
         }
     };
+    //# sourceMappingURL=subscribeTo.js.map
 
     /** PURE_IMPORTS_START _InnerSubscriber,_subscribeTo PURE_IMPORTS_END */
     function subscribeToResult(outerSubscriber, result, outerValue, outerIndex, destination) {
@@ -2240,6 +2307,7 @@
         }
         return subscribeTo(result)(destination);
     }
+    //# sourceMappingURL=subscribeToResult.js.map
 
     /** PURE_IMPORTS_START tslib,_util_isScheduler,_util_isArray,_OuterSubscriber,_util_subscribeToResult,_fromArray PURE_IMPORTS_END */
     var NONE = {};
@@ -2306,18 +2374,25 @@
         };
         return CombineLatestSubscriber;
     }(OuterSubscriber));
+    //# sourceMappingURL=combineLatest.js.map
 
     /** PURE_IMPORTS_START _symbol_observable PURE_IMPORTS_END */
+    //# sourceMappingURL=isInteropObservable.js.map
 
     /** PURE_IMPORTS_START _symbol_iterator PURE_IMPORTS_END */
+    //# sourceMappingURL=isIterable.js.map
 
     /** PURE_IMPORTS_START _Observable,_Subscription,_util_subscribeToPromise PURE_IMPORTS_END */
+    //# sourceMappingURL=fromPromise.js.map
 
     /** PURE_IMPORTS_START _Observable,_Subscription,_symbol_iterator,_util_subscribeToIterable PURE_IMPORTS_END */
+    //# sourceMappingURL=fromIterable.js.map
 
     /** PURE_IMPORTS_START _Observable,_Subscription,_symbol_observable,_util_subscribeToObservable PURE_IMPORTS_END */
+    //# sourceMappingURL=fromObservable.js.map
 
     /** PURE_IMPORTS_START _Observable,_util_isPromise,_util_isArrayLike,_util_isInteropObservable,_util_isIterable,_fromArray,_fromPromise,_fromIterable,_fromObservable,_util_subscribeTo PURE_IMPORTS_END */
+    //# sourceMappingURL=from.js.map
 
     /** PURE_IMPORTS_START tslib,_util_subscribeToResult,_OuterSubscriber,_InnerSubscriber,_map,_observable_from PURE_IMPORTS_END */
     var MergeMapSubscriber = /*@__PURE__*/ (function (_super) {
@@ -2385,14 +2460,19 @@
         };
         return MergeMapSubscriber;
     }(OuterSubscriber));
+    //# sourceMappingURL=mergeMap.js.map
 
     /** PURE_IMPORTS_START _mergeMap,_util_identity PURE_IMPORTS_END */
+    //# sourceMappingURL=mergeAll.js.map
 
     /** PURE_IMPORTS_START _mergeAll PURE_IMPORTS_END */
+    //# sourceMappingURL=concatAll.js.map
 
     /** PURE_IMPORTS_START _of,_operators_concatAll PURE_IMPORTS_END */
+    //# sourceMappingURL=concat.js.map
 
     /** PURE_IMPORTS_START _Observable,_from,_empty PURE_IMPORTS_END */
+    //# sourceMappingURL=defer.js.map
 
     /** PURE_IMPORTS_START tslib,_Observable,_util_isArray,_empty,_util_subscribeToResult,_OuterSubscriber,_operators_map PURE_IMPORTS_END */
     var ForkJoinSubscriber = /*@__PURE__*/ (function (_super) {
@@ -2438,27 +2518,38 @@
         };
         return ForkJoinSubscriber;
     }(OuterSubscriber));
+    //# sourceMappingURL=forkJoin.js.map
 
     /** PURE_IMPORTS_START _Observable,_util_isArray,_util_isFunction,_operators_map PURE_IMPORTS_END */
+    //# sourceMappingURL=fromEvent.js.map
 
     /** PURE_IMPORTS_START _Observable,_util_isArray,_util_isFunction,_operators_map PURE_IMPORTS_END */
+    //# sourceMappingURL=fromEventPattern.js.map
 
     /** PURE_IMPORTS_START _Observable,_util_identity,_util_isScheduler PURE_IMPORTS_END */
+    //# sourceMappingURL=generate.js.map
 
     /** PURE_IMPORTS_START _defer,_empty PURE_IMPORTS_END */
+    //# sourceMappingURL=iif.js.map
 
     /** PURE_IMPORTS_START _isArray PURE_IMPORTS_END */
+    //# sourceMappingURL=isNumeric.js.map
 
     /** PURE_IMPORTS_START _Observable,_scheduler_async,_util_isNumeric PURE_IMPORTS_END */
+    //# sourceMappingURL=interval.js.map
 
     /** PURE_IMPORTS_START _Observable,_util_isScheduler,_operators_mergeAll,_fromArray PURE_IMPORTS_END */
+    //# sourceMappingURL=merge.js.map
 
     /** PURE_IMPORTS_START _Observable,_util_noop PURE_IMPORTS_END */
     var NEVER = /*@__PURE__*/ new Observable(noop);
+    //# sourceMappingURL=never.js.map
 
     /** PURE_IMPORTS_START _Observable,_from,_util_isArray,_empty PURE_IMPORTS_END */
+    //# sourceMappingURL=onErrorResumeNext.js.map
 
     /** PURE_IMPORTS_START _Observable,_Subscription PURE_IMPORTS_END */
+    //# sourceMappingURL=pairs.js.map
 
     /** PURE_IMPORTS_START tslib,_util_isArray,_fromArray,_OuterSubscriber,_util_subscribeToResult PURE_IMPORTS_END */
     var RaceSubscriber = /*@__PURE__*/ (function (_super) {
@@ -2507,12 +2598,16 @@
         };
         return RaceSubscriber;
     }(OuterSubscriber));
+    //# sourceMappingURL=race.js.map
 
     /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
+    //# sourceMappingURL=range.js.map
 
     /** PURE_IMPORTS_START _Observable,_scheduler_async,_util_isNumeric,_util_isScheduler PURE_IMPORTS_END */
+    //# sourceMappingURL=timer.js.map
 
     /** PURE_IMPORTS_START _Observable,_from,_empty PURE_IMPORTS_END */
+    //# sourceMappingURL=using.js.map
 
     /** PURE_IMPORTS_START tslib,_fromArray,_util_isArray,_Subscriber,_OuterSubscriber,_util_subscribeToResult,_.._internal_symbol_iterator PURE_IMPORTS_END */
     var ZipSubscriber = /*@__PURE__*/ (function (_super) {
@@ -2702,10 +2797,13 @@
         };
         return ZipBufferIterator;
     }(OuterSubscriber));
+    //# sourceMappingURL=zip.js.map
 
     /** PURE_IMPORTS_START  PURE_IMPORTS_END */
+    //# sourceMappingURL=index.js.map
 
     const subject = new BehaviorSubject(123);
+    subject.subscribe(console.log);
 
     let fileInputText = document.querySelector(`#fileInputText`);
     fileInputText.addEventListener(`change`, e => {
@@ -2751,9 +2849,8 @@
     fileInputBlob.addEventListener(`change`, e => {
       let files = e.target.files;
       let file = files[0];
-      subject.subscribe(console.log);
 
-      textFileReaderStream(file);
+      streamTextFromFile(file);
 
       // let reader = new FileReader()
 
@@ -2804,34 +2901,6 @@
       document.body.removeChild(link);
     }
 
-    function readChunk(offset, length, file) {
-      var r = new FileReader();
-      var blob = file.slice(offset, length + offset);
-      r.onload = e => {
-        onLoadHandler(e, offset, file);
-      };
-      r.readAsArrayBuffer(blob);
-    }
-
-    function onLoadHandler(e, offset, file) {
-      if (e.target.error !== null) {
-        console.log(`error`, e.target.error);
-        return
-      }
-
-      var arrayBuffer = e.target.result;
-
-      offset += 1024;
-
-      // console.log(arrayBufferToString(arrayBuffer))
-      subject.next(arrayBufferToString(arrayBuffer));
-      if (offset >= file.size) {
-        console.log(`end`);
-      } else {
-        readChunk(offset, 1024, file);
-      }
-    }
-
     function arrayBufferToString(arrayBuffer) {
       // console.log(`Uint8Array`, unti8)
       let enc = new TextDecoder(`utf-8`);
@@ -2839,8 +2908,70 @@
       return enc.decode(arrayBuffer)
     }
 
-    function textFileReaderStream(file) {
-      readChunk(0, 1024, file);
+    // function* fibonacci() {
+    //   readChunk2(0, 1024, file)
+
+    //   while (true) {
+    //     var current = fn1
+    //     fn1 = fn2
+    //     fn2 = current + fn1
+    //     var reset = yield current
+    //     if (reset) {
+    //       fn1 = 0
+    //       fn2 = 1
+    //     }
+    //   }
+    // }
+
+    async function* textFileReaderStream2(file) {
+      let offset = 0;
+      let okToFetch = true;
+      while (okToFetch) {
+        let e = await readChunk2(offset, 1024, file);
+        // subject.next(onLoadHandler2(e, 1024, file))
+        yield onLoadHandler2(e, 1024, file);
+        offset += 1024;
+        if (offset >= file.size) {
+          console.log(`end`);
+          okToFetch = false;
+        }
+      }
+    }
+
+    function readChunk2(offset, length, file) {
+      return new Promise((resolve, reject) => {
+        var r = new FileReader();
+        var blob = file.slice(offset, length + offset);
+        r.onload = e => {
+          resolve(e);
+        };
+        r.readAsArrayBuffer(blob);
+      })
+    }
+
+    function onLoadHandler2(e, offset, file) {
+      if (e.target.error !== null) {
+        // subject.next(`error`, e.target.error)
+        return e.target.error
+      }
+
+      var arrayBuffer = e.target.result;
+      // subject.next(arrayBufferToString(arrayBuffer))
+      return arrayBufferToString(arrayBuffer)
+    }
+
+    async function streamTextFromFile(file) {
+      var sequence = textFileReaderStream2(file);
+      let okToIterate = true;
+
+      while (okToIterate) {
+        let p = await sequence.next();
+        if (!p.done) {
+          subject.next(p.value);
+        } else {
+          okToIterate = false;
+        }
+      }
     }
 
 }());

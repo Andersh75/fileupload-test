@@ -33,6 +33,7 @@
     "btoa": false,
     "ArrayBuffer": false,
     "Uint8Array": false,
-    "Blob": false
+    "Blob": false,
+    "Promise": false
   }
 }
