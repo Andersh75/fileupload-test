@@ -1,3 +1,6 @@
+import { BehaviorSubject } from "rxjs"
+const subject = new BehaviorSubject(123)
+
 let fileInputText = document.querySelector(`#fileInputText`)
 fileInputText.addEventListener(`change`, e => {
   let files = e.target.files
@@ -42,28 +45,32 @@ let fileInputBlob = document.querySelector(`#fileInputBlob`)
 fileInputBlob.addEventListener(`change`, e => {
   let files = e.target.files
   let file = files[0]
-  let reader = new FileReader()
+  subject.subscribe(console.log)
 
-  reader.onload = function(e) {
-    // let blobFileDisplayArea = document.querySelector(`#blobFileDisplayArea`)
-    // blobFileDisplayArea.innerHTML = ``
-    let arrayBuffer = e.target.result
+  textFileReaderStream(file)
 
-    let blob = arrayBufferToBlob(arrayBuffer, file.type)
-    // var dataView = new DataView(arrayBuffer)
-    // var decoder = new TextDecoder(`utf-8`)
-    // var decodedString = decoder.decode(dataView)
-    // console.log(decodedString)
-    // blobToArrayBuffer(blob, result => {
-    //   downloadBlob(arrayBufferToBlob(result), `test.png`)
-    // })
-    // arrayBufferToDataURL(arrayBuffer, file.type, result => {
-    //   downloadURL(result, `test.png`)
-    // })
+  // let reader = new FileReader()
 
-    downloadBlob(blob, `test.png`)
-  }
-  reader.readAsArrayBuffer(file)
+  // reader.onload = function(e) {
+  //   // let blobFileDisplayArea = document.querySelector(`#blobFileDisplayArea`)
+  //   // blobFileDisplayArea.innerHTML = ``
+  //   let arrayBuffer = e.target.result
+
+  //   let blob = arrayBufferToBlob(arrayBuffer, file.type)
+  //   // var dataView = new DataView(arrayBuffer)
+  //   // var decoder = new TextDecoder(`utf-8`)
+  //   // var decodedString = decoder.decode(dataView)
+  //   // console.log(decodedString)
+  //   // blobToArrayBuffer(blob, result => {
+  //   //   downloadBlob(arrayBufferToBlob(result), `test.png`)
+  //   // })
+  //   // arrayBufferToDataURL(arrayBuffer, file.type, result => {
+  //   //   downloadURL(result, `test.png`)
+  //   // })
+
+  //   downloadBlob(blob, `test.png`)
+  // }
+  // reader.readAsArrayBuffer(file)
 })
 
 function arrayBufferToBlob(arrayBuffer, type) {
@@ -161,4 +168,45 @@ function downloadURL(uri, name) {
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
+}
+
+function readChunk(offset, length, file) {
+  var r = new FileReader()
+  var blob = file.slice(offset, length + offset)
+  r.onload = e => {
+    onLoadHandler(e, offset, file)
+  }
+  r.readAsArrayBuffer(blob)
+}
+
+function onLoadHandler(e, offset, file) {
+  if (e.target.error !== null) {
+    console.log(`error`, e.target.error)
+    return
+  }
+
+  var arrayBuffer = e.target.result
+
+  offset += 1024
+
+  // console.log(arrayBufferToString(arrayBuffer))
+  subject.next(arrayBufferToString(arrayBuffer))
+  if (offset >= file.size) {
+    console.log(`end`)
+  } else {
+    readChunk(offset, 1024, file)
+  }
+}
+
+function arrayBufferToString(arrayBuffer) {
+  // console.log(`arrayBuffer`, arrayBuffer)
+  let unti8 = new Uint8Array(arrayBuffer)
+  // console.log(`Uint8Array`, unti8)
+  let enc = new TextDecoder(`utf-8`)
+  // console.log(enc.decode(arrayBuffer))
+  return enc.decode(arrayBuffer)
+}
+
+function textFileReaderStream(file) {
+  readChunk(0, 1024, file)
 }
