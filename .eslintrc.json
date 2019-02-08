@@ -30,6 +30,7 @@
     "TextDecoder": false,
     "window": false,
     "atob": false,
+    "btoa": false,
     "ArrayBuffer": false,
     "Uint8Array": false,
     "Blob": false
